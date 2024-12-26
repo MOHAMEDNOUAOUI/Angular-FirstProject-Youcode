@@ -1,0 +1,12 @@
+<div [ngClass]="{'w-full h-full':!Surveys , 'w-fit h-fit flex gap-10 flex-wrap':Surveys}">
+
+    <div *ngIf="!Surveys" class="w-full h-full flex items-center justify-center flex-col">
+           <h1 class="text-4xl font-bold text-gray-700">No Survey Founds</h1>
+           <p>Maybe you can create one now?</p>
+
+    </div>
+
+    @for (survey of Surveys; track survey.id) {
+        <app-survey-item [Survey]="survey"></app-survey-item>
+    }
+</div>
