@@ -1,6 +1,6 @@
 import {
   isPlatformServer
-} from "./chunk-UGCUKOBT.js";
+} from "./chunk-IBXZIRMC.js";
 import {
   ChangeDetectionStrategy,
   Component,
@@ -16,7 +16,6 @@ import {
   effect,
   inject,
   input,
-  isObservable,
   makeEnvironmentProviders,
   numberAttribute,
   runInInjectionContext,
@@ -31,7 +30,10 @@ import {
   ɵɵprojection,
   ɵɵprojectionDef,
   ɵɵstyleProp
-} from "./chunk-S264YWTD.js";
+} from "./chunk-RTJCVXYN.js";
+import {
+  isObservable
+} from "./chunk-ZSY7TSMJ.js";
 import {
   __async,
   __spreadValues

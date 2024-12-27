@@ -10,7 +10,7 @@ export const routes: Routes = [
         component: DashboardAdminComponent,
         children:[
             {path:'' , component:HomePageComponent},
-            {path:'SurveyEdition/:id' , component:SurveyEditionComponent},
+            {path:'SurveyEdition/:year' , component:SurveyEditionComponent},
             {path:'Survey' , component:SurveyComponent}
         ]
     },

@@ -16,8 +16,10 @@ export class SurveyItemComponent {
 
   constructor(private router:Router){}
 
-  navigate(editionId : string){
-    this.router.navigate(['/Dashboard/SurveyEdition' , editionId]);
+  navigate(year : number , editionId:string){
+    this.router.navigate(['/Dashboard/SurveyEdition' , year] , {
+      queryParams: {editionId}
+    });
   }
 
 }

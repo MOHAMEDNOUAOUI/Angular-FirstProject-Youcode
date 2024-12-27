@@ -1,0 +1,65 @@
+<table class="w-full text-sm text-left">
+    <!-- Table Header -->
+    <thead class="text-xs uppercase bg-gray-50">
+        <tr *ngIf="type == 'question'">
+            <th scope="col" class="px-6 py-3">
+                id
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Question
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Type
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Answers Count
+            </th>
+        </tr>
+        <tr *ngIf="type == 'answer'">
+            <th scope="col" class="px-6 py-3">
+                id
+            </th>
+            <th scope="col" class="px-6 py-3">
+                Answer
+            </th>
+            <th scope="col" class="px-6 py-3">
+                selectionCount
+            </th>
+        </tr>
+    </thead>
+    <!-- Table Body -->
+    <tbody class="overflow-auto" *ngIf="type == 'question'">
+        @for (Question of questions; track Question.id) {
+        <tr (click)="showAnswerTableWithData(Question.id)" class="bg-white border-b hover:bg-gray-50">
+                <td class="px-6 py-4">
+                    {{Question.id}}
+                </td>
+                <td class="px-6 py-4">
+                    {{Question.text}}
+                </td>
+                <td class="px-6 py-4">
+                    {{Question.questionType}}
+                </td>
+                <td class="px-6 py-4">
+                    {{Question.answerCount}}
+                </td>
+            
+        </tr>
+    }
+    </tbody>
+
+    <tbody class="overflow-auto" *ngIf="type==='answer'">
+        @for (Answer of answerlist; track Answer.id) {
+            <td class="px-6 py-4">
+                {{Answer.id}}
+            </td>
+            <td class="px-6 py-4">
+                {{Answer.text}}
+            </td>
+            <td class="px-6 py-4">
+                {{Answer.selectionCount}}
+            </td>
+        }
+    </tbody>
+
+</table>

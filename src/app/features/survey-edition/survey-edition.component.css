@@ -1,0 +1,58 @@
+.tree-root, .tree-child {
+    list-style: none;
+    padding-left: 1.5rem;
+    line-height: 2em;
+}
+
+.tree-child {
+    position: relative;
+}
+
+.tree-item {
+    position: relative;
+}
+
+
+.tree-item::before {
+    content: "";
+    position: absolute;
+    left: -1.5rem;
+    top: 1em;
+    width: 1.5rem;
+    height: 1px;
+    background-color: #94a3b8;
+}
+
+
+.tree-child::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: #94a3b8;
+}
+
+.tree-child li:last-child + li::before {
+    display: none;
+}
+
+
+ul summary{
+    position: relative;
+}
+ul summary::before{
+    display: block;
+    position: absolute;
+    background-color: orange;
+    border-radius: 100%;
+    height: 20px;
+    width: 20px;
+    top: .55em;
+    left: -2rem;
+    z-index: 100;
+    content: "+";
+    line-height: 1.1em;
+    text-align: center;
+}

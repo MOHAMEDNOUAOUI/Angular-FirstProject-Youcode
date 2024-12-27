@@ -1,31 +1,67 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { SurveyEdition } from './Modules/SurveyEdition.module';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SurveyEditionService } from './Services/SurveyEdition.service';
+import { Subject } from '../Subjects/Module/Subject.module';
+import { CommonModule } from '@angular/common';
+import { TableComponent } from "./components/table/table.component";
+import { Answer } from '../Questions/Module/Answer.module';
+import { Question } from '../Questions/Module/Question.module';
+import { SharedService } from './Services/sharedService.service';
 
 @Component({
   selector: 'app-survey-edition',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, TableComponent],
   templateUrl: './survey-edition.component.html',
   styleUrl: './survey-edition.component.css'
 })
 export class SurveyEditionComponent implements OnInit{
-  SurveyEdition!:SurveyEdition;
 
-  constructor(private route:ActivatedRoute , private SurveyEditionService : SurveyEditionService){}
+  SurveyEdition!:SurveyEdition;
+  subject?:Subject;
+  QuestionId!:string;
+
+  showAnswerTable = false;
+  selectedQuestionId?: string; 
+
+  constructor(private route:ActivatedRoute , private router:Router ,  private SurveyEditionService : SurveyEditionService , private SharedService:SharedService){}
 
   ngOnInit(): void {
+
+    const editionId = this.route.snapshot.queryParamMap.get('editionId');
+
+    if(editionId){
       this.route.params.subscribe(params =>{
-        const id = params['id'];
-        this.SurveyEditionService.getSurveyById(id).subscribe({
+        this.SurveyEditionService.getSurveyById(editionId).subscribe({
           next:(data) => {
             this.SurveyEdition = data;
           },
           error:(error) => {
             console.error('Error fetching survey:', error);
+            this.router.navigate(['Dashboard/Survey']);
           }
         })
       })
+    }else{
+      console.error('editionId is undefined. Redirecting to /Survey.');
+      this.router.navigate(['Dashboard/Survey']);
+    }
+
+
+    this.SharedService.questionId$.subscribe((id) => {
+      if(id){
+          this.showAnswerTable= true;
+          this.selectedQuestionId = id;
+      }
+    })
+
   }
+
+  passDataToSubjectComponent(subjectparam : Subject) : void{
+      this.subject = subjectparam;
+  }
+
+
+
 }

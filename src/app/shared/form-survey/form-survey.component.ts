@@ -10,6 +10,7 @@ import { TriggerPanelsComponent } from "../trigger-panels/trigger-panels.compone
 })
 export class FormSurveyComponent {
 
+  Class : string = '';
   @Output() closeForm = new EventEmitter<void>();
 
   onClose() {

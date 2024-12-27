@@ -1,4 +1,5 @@
 import { Survey } from "../../survey/Modules/Survey.module";
+import { Subject } from '../../Subjects/Module/Subject.module';
 
 
 export interface SurveyEdition {
@@ -6,5 +7,6 @@ export interface SurveyEdition {
     creationDate:Date,
     startDate:Date,
     year:number,
-    survey:Survey
+    survey:Survey,
+    subjects:Subject[]
 }

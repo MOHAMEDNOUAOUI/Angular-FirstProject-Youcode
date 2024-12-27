@@ -1,1 +1,45 @@
-<p>{{SurveyEdition.survey.title}}</p>
+<div class="w-full h-full flex flex-col">
+
+    <h1 class="text-center text-3xl text-wrap font-bold uppercase">{{SurveyEdition.survey.title}}</h1>
+    <p class="text-center">Edition : {{SurveyEdition.year}}</p>
+
+
+   <div class="dataholder w-full h-full flex">
+
+    <div class="Subject h-full w-[30%] border-r-2">
+        <ul class="tree-root w-full h-full">
+            <h3 class="text-3xl font-bold">Subjects</h3>
+            @for (Subject of SurveyEdition.subjects; track $index) {
+                <li>
+                    <details open class="[&>summary]:list-none">
+                        <summary class="cursor-pointer">{{Subject.title}}</summary>
+                        <ul class="tree-child">
+                            @for (subsubject of Subject.subSubjects; track $index) {
+                                <li (click)="passDataToSubjectComponent(subsubject)" class="tree-item">{{subsubject.title}}</li>
+                            }
+                        </ul>
+                    </details>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div *ngIf="subject" class="OtherSide w-[70%] h-full flex flex-col p-4 gap-6">
+
+            <div class="explanation w-full h-fit flex gap-4 border-b-2 text-xl pb-3">
+                    <p>ID : {{subject.id}}</p>
+                    <p>Title : {{subject.title}}</p>
+            </div>
+
+                
+                <app-table class="h-2/5"  type="question" [questions]="subject.questionList"></app-table>
+                <app-table class="h-2/5" *ngIf="showAnswerTable" [questionId]="QuestionId" type="answer"></app-table>
+
+
+    </div>
+    
+   </div>
+
+
+
+</div>
