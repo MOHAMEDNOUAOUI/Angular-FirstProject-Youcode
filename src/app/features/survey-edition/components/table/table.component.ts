@@ -15,7 +15,7 @@ import { QuestionService } from '../../../Questions/Service/Question.service';
 })
 export class TableComponent implements OnInit{
 
-  questionWithAnswers!:Question[];
+  answerlist!:Answer[];
 
   @Input() type!:string;
   @Input() questions?:Question[];
@@ -36,7 +36,10 @@ export class TableComponent implements OnInit{
         this.SharedService.questionId$.subscribe((key) => {
           this.QuestionService.getQuestionById(key!).subscribe({
             next:(data) => {
-              this.questionWithAnswers = data;
+              console.log(data.answerList);
+            },
+            error:(error) => {
+              console.log(error);
             }
           })
         })
