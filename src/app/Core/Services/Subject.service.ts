@@ -1,8 +1,8 @@
+import { CreateSubject } from './../DTOs/Subject/CreateSubject.module';
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { CreateSubject } from "../Module/dto/CreateSubject.module";
 import { Observable} from "rxjs";
-import { Subject} from '../Module/Subject.module'
+import { Subject} from '../Models/Subject.module'
 
 @Injectable({
     providedIn:'root'

@@ -1,5 +1,6 @@
-import { Survey } from "../../../Core/Models/Survey.module";
-import { Subject } from '../../../Core/Models/Subject.module';
+import { Subject } from './Subject.module';
+import { Survey } from './Survey.module';
+
 
 
 export interface SurveyEdition {

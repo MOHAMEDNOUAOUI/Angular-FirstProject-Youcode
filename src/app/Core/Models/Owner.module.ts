@@ -1,4 +1,4 @@
-import { Survey } from "../../../Core/Models/Survey.module";
+import { Survey } from './Survey.module';
 
 
 export interface Owner{

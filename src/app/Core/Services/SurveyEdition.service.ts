@@ -1,5 +1,5 @@
+import { SurveyEdition } from './../Models/SurveyEdition.module';
 import { Injectable } from "@angular/core";
-import { SurveyEdition } from "../Modules/SurveyEdition.module";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 

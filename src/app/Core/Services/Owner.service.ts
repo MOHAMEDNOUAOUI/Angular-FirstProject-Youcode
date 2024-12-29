@@ -1,8 +1,8 @@
+import { CreateOnwer } from './../DTOs/Survey/CreateOwner.module';
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { Owner } from '../Modules/Owner.module';
-import { CreateOnwer } from '../Modules/dto/CreateOwner.module';
+import { Owner } from '../Models/Owner.module';
 
 @Injectable({
     providedIn:"root"

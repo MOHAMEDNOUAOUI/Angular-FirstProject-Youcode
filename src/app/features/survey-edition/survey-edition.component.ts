@@ -1,6 +1,6 @@
 import { SurveyEdition } from './../../Core/Models/SurveyEdition.module';
 import { Question } from '../../Core/Models/Question.module';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SurveyEditionService } from '../../Core/Services/SurveyEdition.service';
 import { Subject } from '../../Core/Models/Subject.module';
@@ -13,7 +13,7 @@ import { InputComponent } from "../../shared/input/input.component";
 @Component({
   selector: 'app-survey-edition',
   standalone: true,
-  imports: [CommonModule, TableComponent, InputComponent],
+  imports: [CommonModule, TableComponent , InputComponent],
   templateUrl: './survey-edition.component.html',
   styleUrl: './survey-edition.component.css'
 })
