@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { PanelItemSearchComponent } from "../../../dashboard-admin/components/panel-admin/panel-item-search/panel-item-search.component";
 import { SurveyItemComponent } from "./survey-item/survey-item.component";
-import { Survey } from '../../Modules/Survey.module';
-import { SurveyService } from '../../Services/Survey.service';
+import { Survey } from '../../../../Core/Models/Survey.module';
+import { SurveyService } from '../../../../Core/Services/Survey.service';
 import { CommonModule } from '@angular/common';
 
 @Component({

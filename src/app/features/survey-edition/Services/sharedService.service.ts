@@ -6,7 +6,7 @@ import { BehaviorSubject } from "rxjs";
 })
 export class SharedService{
     private questionIdSource = new BehaviorSubject<string | null>(null);
-  questionId$ = this.questionIdSource.asObservable();
+    questionId$ = this.questionIdSource.asObservable();
 
   sendQuestionId(questionId: string): void {
     this.questionIdSource.next(questionId);

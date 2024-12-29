@@ -38,8 +38,8 @@
             </div>
 
                 
-                <app-table class="h-2/5"  type="question" [questions]="subject.questionList"></app-table>
-                <app-table class="h-2/5" *ngIf="showAnswerTable" [questionId]="QuestionId" type="answer"></app-table>
+                <app-table class="h-2/5" type="question" [subject]="subject"></app-table>
+                <app-table class="h-2/5" *ngIf="showAnswerTable" type="answer"></app-table>
 
 
     </div>

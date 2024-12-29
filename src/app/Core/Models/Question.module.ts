@@ -1,5 +1,5 @@
-import { Answer } from "../../../Answer/Modules/Answer.module";
-import { Subject } from "../../Subjects/Module/Subject.module";
+import { Answer } from "./Answer.module";
+import { Subject } from "./Subject.module";
 
 export interface Question{
     id:string,

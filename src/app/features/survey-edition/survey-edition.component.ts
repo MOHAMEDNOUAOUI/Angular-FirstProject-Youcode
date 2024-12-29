@@ -1,12 +1,12 @@
+import { SurveyEdition } from './../../Core/Models/SurveyEdition.module';
+import { Question } from '../../Core/Models/Question.module';
 import { Component, Inject, OnInit } from '@angular/core';
-import { SurveyEdition } from './Modules/SurveyEdition.module';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SurveyEditionService } from './Services/SurveyEdition.service';
-import { Subject } from '../Subjects/Module/Subject.module';
+import { SurveyEditionService } from '../../Core/Services/SurveyEdition.service';
+import { Subject } from '../../Core/Models/Subject.module';
 import { CommonModule } from '@angular/common';
 import { TableComponent } from "./components/table/table.component";
-import { Answer } from '../../Answer/Modules/Answer.module';
-import { Question } from '../Questions/Module/Question.module';
+import { Answer } from '../../Core/Models/Answer.module';
 import { SharedService } from './Services/sharedService.service';
 import { InputComponent } from "../../shared/input/input.component";
 
@@ -59,8 +59,8 @@ export class SurveyEditionComponent implements OnInit{
 
   }
 
-  passDataToSubjectComponent(subjectparam : Subject) : void{
-      this.subject = subjectparam;
+  passDataToSubjectComponent(subject : Subject) : void{
+      this.subject = subject;
   }
 
 

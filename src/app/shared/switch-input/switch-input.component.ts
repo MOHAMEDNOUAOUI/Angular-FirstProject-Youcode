@@ -1,6 +1,6 @@
+import { OwnerService } from './../../Core/Services/Owner.service';
+import { Owner } from './../../Core/Models/Owner.module';
 import { Component, EventEmitter, NgModule, OnInit, Output } from '@angular/core';
-import { OwnerService } from '../../features/survey/Services/Owner.service';
-import { Owner } from '../../features/survey/Modules/Owner.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule} from '@angular/forms';
 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { SurveyListComponent } from "./Components/survey-list/survey-list.component";
 import { TriggerPanelsComponent } from "../../shared/trigger-panels/trigger-panels.component";
-import { Survey } from './Modules/Survey.module';
+import { Survey } from '../../Core/Models/Survey.module';
 import { CommonModule } from '@angular/common';
 import { FormSurveyComponent } from "../../shared/form-survey/form-survey.component";
 

@@ -27,7 +27,7 @@
         </tr>
     </thead>
     <tbody class="overflow-auto" *ngIf="type == 'question'">
-        @for (Question of questions; track Question.id) {
+        @for (Question of subject.questionList; track Question.id) {
         <tr (click)="showAnswerTableWithData(Question.id)" class="bg-white border-b hover:bg-gray-50">
                 <td class="px-6 py-4">
                     {{Question.id}}
@@ -44,10 +44,24 @@
             
         </tr>
     }
+    <!--         this is for the question adding           -->
+    <tr>
+        <td></td>
+        <td><input [(ngModel)]="Question.text" (keydown.enter)="onEnter('question')" class="border" placeholder="Question ..." type="text"></td>
+        <td>
+            <select [(ngModel)]="Question.questionType">
+                <option value="SINGLE_CHOICE" selected>SINGLE_CHOICE</option>
+                <option value="MULTIPLE_CHOICE">MULTIPLE_CHOICE</option>
+            </select>
+        </td>
+        <td></td>
+    </tr>
+    <!------------------------------------------------------->
     </tbody>
 
     <tbody class="overflow-auto" *ngIf="type==='answer'">
         @for (Answer of answerlist; track Answer.id) {
+           <tr>
             <td class="px-6 py-4">
                 {{Answer.id}}
             </td>
@@ -57,7 +71,14 @@
             <td class="px-6 py-4">
                 {{Answer.selectionCount}}
             </td>
+           </tr>
         }
+
+        <tr>
+            <td></td>
+            <td><input [(ngModel)]="answerObject.text" (keydown.enter)="onEnter('answer')" type="text"></td>
+            <td></td>
+        </tr>
     </tbody>
 
 </table>

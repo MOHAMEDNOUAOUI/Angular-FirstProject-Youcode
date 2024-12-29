@@ -1,10 +1,11 @@
+import { SubjectService } from './../../Core/Services/Subject.service';
 import { Component, Input, OnInit } from '@angular/core';
-import { CreateSubject } from '../../features/Subjects/Module/dto/CreateSubject.module';
+import { CreateSubject } from '../../Core/DTOs/Subject/CreateSubject.module';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Survey } from '../../features/survey/Modules/Survey.module';
-import { parent } from '../../features/Subjects/Module/Parent.module';
-import { SubjectService } from '../../features/Subjects/Service/Subject.service';
+import { Survey } from '../../Core/Models/Survey.module';
+import { parent } from '../../Core/Models/Parent.module';
+
 
 @Component({
   selector: 'app-input',

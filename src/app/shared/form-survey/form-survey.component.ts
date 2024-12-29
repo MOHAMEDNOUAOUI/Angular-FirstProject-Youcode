@@ -3,8 +3,8 @@ import { TriggerPanelsComponent } from "../trigger-panels/trigger-panels.compone
 import { SwitchInputComponent } from "../switch-input/switch-input.component";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { SurveyCreate } from '../../features/survey/Modules/dto/CreateSurvey.module';
-import { SurveyService } from '../../features/survey/Services/Survey.service';
+import { SurveyCreate } from '../../Core/DTOs/Survey/CreateSurvey.module';
+import { SurveyService } from '../../Core/Services/Survey.service';
 
 @Component({
   selector: 'app-form-survey',

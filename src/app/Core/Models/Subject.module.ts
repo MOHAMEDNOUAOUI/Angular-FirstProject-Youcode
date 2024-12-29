@@ -1,5 +1,5 @@
-import { Question } from '../../Questions/Module/Question.module';
-import { SurveyEdition } from '../../survey-edition/Modules/SurveyEdition.module';
+import { SurveyEdition } from './SurveyEdition.module';
+import { Question } from './Question.module';
 import { parent } from './Parent.module';
 export interface Subject{
     id:string,

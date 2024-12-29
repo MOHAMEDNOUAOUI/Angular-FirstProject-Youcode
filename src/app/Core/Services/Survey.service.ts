@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
-import { Survey } from "../Modules/Survey.module";
+import { Survey } from "../Models/Survey.module";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { SurveyCreate } from "../Modules/dto/CreateSurvey.module";
+import { SurveyCreate } from "../DTOs/Survey/CreateSurvey.module";
 
 @Injectable({
     providedIn: "root"
