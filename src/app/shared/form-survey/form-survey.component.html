@@ -1,8 +1,21 @@
-<div class="w-2/4 h-2/3 fixed top-2/4 left-2/4 form">
-    <app-trigger-panels (triggerClicked)="onClose()" class="absolute right-2 top-2" text="close"></app-trigger-panels>
+<div class="w-2/4 h-2/3 fixed top-2/4 left-2/4 form bg-white flex flex-col">
+    <app-trigger-panels (triggerClicked)="onClose()" class="flex justify-end p-2" text="close"></app-trigger-panels>
+    
+    <form (ngSubmit)="onSubmit()" #surveyForm="ngForm" class="w-full h-full rounded-lg flex flex-col">
+        <app-switch-input (ownerSelected)="ownerSelect($event)"></app-switch-input>
 
-    <form action="" class="w-full h-full rounded-lg bg-black">
+        <div>
+            <label for="title">Title</label>
+            <input type="text" name="title" required [(ngModel)]="survey.title" #title="ngModel" />
+            <div *ngIf="title.invalid && title.touched">Title is required</div>
+        </div>
 
+      <div>
+        <label for="description">Description</label>
+        <input type="text" name="description" required [(ngModel)]="survey.description" #description="ngModel" />
+        <div *ngIf="description.invalid && description.touched">Description is required</div>
+      </div>
 
+        <button class="bg-blue-500 w-2/6 p-3 text-white font-bold" type="submit" [disabled]="surveyForm.invalid">Submit</button>
     </form>
 </div>

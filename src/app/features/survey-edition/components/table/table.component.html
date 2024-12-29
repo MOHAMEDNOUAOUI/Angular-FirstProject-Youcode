@@ -1,5 +1,4 @@
 <table class="w-full text-sm text-left">
-    <!-- Table Header -->
     <thead class="text-xs uppercase bg-gray-50">
         <tr *ngIf="type == 'question'">
             <th scope="col" class="px-6 py-3">
@@ -27,7 +26,6 @@
             </th>
         </tr>
     </thead>
-    <!-- Table Body -->
     <tbody class="overflow-auto" *ngIf="type == 'question'">
         @for (Question of questions; track Question.id) {
         <tr (click)="showAnswerTableWithData(Question.id)" class="bg-white border-b hover:bg-gray-50">

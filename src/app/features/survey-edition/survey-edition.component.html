@@ -9,19 +9,25 @@
     <div class="Subject h-full w-[30%] border-r-2">
         <ul class="tree-root w-full h-full">
             <h3 class="text-3xl font-bold">Subjects</h3>
-            @for (Subject of SurveyEdition.subjects; track $index) {
+            @for (Subject of SurveyEdition.subjects; track Subject.id) {
                 <li>
                     <details open class="[&>summary]:list-none">
                         <summary class="cursor-pointer">{{Subject.title}}</summary>
                         <ul class="tree-child">
-                            @for (subsubject of Subject.subSubjects; track $index) {
+                            @for (subsubject of Subject.subSubjects; track subsubject.id ; let last = $last) {
                                 <li (click)="passDataToSubjectComponent(subsubject)" class="tree-item">{{subsubject.title}}</li>
                             }
+                            <app-input 
+                            [inputData]="{InputType: 'text'  , placeholder:'Enter a Subsubject' ,type:'subjects'}"
+                            [subjectsData]="{subjectType:'subsubject' , parentId:Subject?.id  , surveyId:SurveyEdition.id}"
+                            ></app-input>
                         </ul>
                     </details>
                 </li>
             }
+            <app-input [inputData]="{InputType: 'text', subjectType:'main' , placeholder:'Enter a Subject' , surveyId:SurveyEdition.id}"></app-input>
         </ul>
+        
     </div>
 
     <div *ngIf="subject" class="OtherSide w-[70%] h-full flex flex-col p-4 gap-6">

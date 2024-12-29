@@ -1,4 +1,4 @@
-import { Answer } from "./Answer.module";
+import { Answer } from "../../../Answer/Modules/Answer.module";
 import { Subject } from "../../Subjects/Module/Subject.module";
 
 export interface Question{

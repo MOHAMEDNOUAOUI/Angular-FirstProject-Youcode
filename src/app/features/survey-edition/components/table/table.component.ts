@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Subject } from '../../../Subjects/Module/Subject.module';
 import { Question } from '../../../Questions/Module/Question.module';
-import { Answer } from '../../../Questions/Module/Answer.module';
+import { Answer } from '../../../../Answer/Modules/Answer.module';
 import { CommonModule } from '@angular/common';
 import { SharedService } from '../../Services/sharedService.service';
 import { QuestionService } from '../../../Questions/Service/Question.service';
+import { AnswerService } from '../../../../Answer/Service/Answer.service';
 
 @Component({
   selector: 'app-table',
@@ -21,7 +22,7 @@ export class TableComponent implements OnInit{
   @Input() questions?:Question[];
   @Input() questionId!:string;
   lastQuestionId!:String;
-  constructor(private SharedService:SharedService , private QuestionService:QuestionService){}
+  constructor(private SharedService:SharedService , private QuestionService:QuestionService , private AnswerService:AnswerService){}
 
 
   showAnswerTableWithData(questionId:string) : void {
@@ -34,9 +35,9 @@ export class TableComponent implements OnInit{
   ngOnInit(): void {
       if(this.type==='answer'){
         this.SharedService.questionId$.subscribe((key) => {
-          this.QuestionService.getQuestionById(key!).subscribe({
+          this.AnswerService.getAnswerWithQuestionId(key!).subscribe({
             next:(data) => {
-              console.log(data.answerList);
+             this.answerlist = data;
             },
             error:(error) => {
               console.log(error);

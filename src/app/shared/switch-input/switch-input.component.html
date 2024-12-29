@@ -1,0 +1,20 @@
+<div>
+    <label>
+      <input type="checkbox" [(ngModel)]="isCreatingNewOwner" />
+      {{ isCreatingNewOwner ? 'Create New Owner' : 'Select Existing Owner' }}
+    </label>
+  </div>
+
+  <div *ngIf="isCreatingNewOwner">
+    <label for="ownerName">Owner Name:</label>
+    <input id="ownerName" [(ngModel)]="newOwnerName" placeholder="Enter owner name" />
+    <button (click)="createOwner()">Add Owner</button>
+  </div>
+  
+  <div *ngIf="!isCreatingNewOwner">
+    <label for="ownerSelect">Select Owner:</label>
+    <select id="ownerSelect" [(ngModel)]="selectedOwnerId" (change)="onOwnerSelect()">
+      <option *ngFor="let owner of owners" [value]="owner.id">{{ owner.name }}</option>
+    </select>
+  </div>
+  

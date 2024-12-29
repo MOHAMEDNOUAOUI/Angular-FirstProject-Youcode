@@ -5,14 +5,15 @@ import { SurveyEditionService } from './Services/SurveyEdition.service';
 import { Subject } from '../Subjects/Module/Subject.module';
 import { CommonModule } from '@angular/common';
 import { TableComponent } from "./components/table/table.component";
-import { Answer } from '../Questions/Module/Answer.module';
+import { Answer } from '../../Answer/Modules/Answer.module';
 import { Question } from '../Questions/Module/Question.module';
 import { SharedService } from './Services/sharedService.service';
+import { InputComponent } from "../../shared/input/input.component";
 
 @Component({
   selector: 'app-survey-edition',
   standalone: true,
-  imports: [CommonModule, TableComponent],
+  imports: [CommonModule, TableComponent, InputComponent],
   templateUrl: './survey-edition.component.html',
   styleUrl: './survey-edition.component.css'
 })

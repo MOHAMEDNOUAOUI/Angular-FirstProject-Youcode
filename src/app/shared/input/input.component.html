@@ -1,0 +1,8 @@
+<input 
+type="{{inputData.InputType}}" 
+class="border-black border w-3/4 px-3 mt-2" 
+placeholder="{{inputData.placeholder}}"
+[(ngModel)]="Subject.title"
+(keydown.enter)="onEnter()"
+required=
+>
