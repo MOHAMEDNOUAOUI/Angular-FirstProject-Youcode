@@ -14,4 +14,8 @@ export class SubjectService{
     createSubject(subject:CreateSubject) : Observable<Subject> {
         return this.http.post<Subject>(this.url , subject);
     }
+
+    deleteSubject(subjectId:string) : Observable<void> {
+        return this.http.delete<void>(`${this.url}/${subjectId}`);
+    }
 }

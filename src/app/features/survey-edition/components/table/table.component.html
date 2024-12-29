@@ -13,6 +13,9 @@
             <th scope="col" class="px-6 py-3">
                 Answers Count
             </th>
+            <th scope="col" class="px-6 py-3">
+                actions
+            </th>
         </tr>
         <tr *ngIf="type == 'answer'">
             <th scope="col" class="px-6 py-3">
@@ -23,6 +26,9 @@
             </th>
             <th scope="col" class="px-6 py-3">
                 selectionCount
+            </th>
+            <th scope="col" class="px-6 py-3">
+                actions
             </th>
         </tr>
     </thead>
@@ -40,6 +46,9 @@
                 </td>
                 <td class="px-6 py-4">
                     {{Question.answerCount}}
+                </td>
+                <td class="px-6 py-4">
+                    <app-menu-component [type]="'question'" [question]="Question" ></app-menu-component>
                 </td>
             
         </tr>

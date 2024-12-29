@@ -9,11 +9,12 @@ import { TableComponent } from "./components/table/table.component";
 import { Answer } from '../../Core/Models/Answer.module';
 import { SharedService } from './Services/sharedService.service';
 import { InputComponent } from "../../shared/input/input.component";
+import { MenuComponentComponent } from "../../shared/menu-component/menu-component.component";
 
 @Component({
   selector: 'app-survey-edition',
   standalone: true,
-  imports: [CommonModule, TableComponent , InputComponent],
+  imports: [CommonModule, TableComponent, InputComponent, MenuComponentComponent],
   templateUrl: './survey-edition.component.html',
   styleUrl: './survey-edition.component.css'
 })

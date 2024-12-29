@@ -1,0 +1,16 @@
+<div class="formEdition fixed w-fit h-80 bg-white z-50 top-2/4 left-2/4 translate-x-[-50%] translate-y-[-50%] text-black">
+    <p class="text-2xl flex justify-end cursor-pointer" (click)="onClose()">x</p>
+    <div class="flex flex-col">
+        <label for="">creationDate</label>
+        <input type="date" name="" class="border w-fit" [(ngModel)]="SurveyEdition.creationDate" [min]="date.todayFront" id="">
+    </div>
+    <div class="flex flex-col">
+        <label for="">startDate</label>
+        <input type="date" name="" class="border w-fit" [(ngModel)]="SurveyEdition.startDate" [min]="SurveyEdition.creationDate" id="">
+    </div>
+    <div class="flex flex-col">
+        <label for="">Year</label>
+        <input type="number" name="" class="border w-fit" [(ngModel)]="SurveyEdition.year" [min]="date.year" [max]="date.year + 5" id="">
+    </div>
+    <button (click)="onCreate()" class="w-full bg-blue-500 p-2">Submit</button>
+</div>

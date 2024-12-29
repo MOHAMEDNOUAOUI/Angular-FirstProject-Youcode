@@ -9,11 +9,12 @@ import { QuestionService } from '../../../../Core/Services/Question.service';
 import { AnswerService } from '../../../../Core/Services/Answer.service';
 import { FormsModule } from '@angular/forms';
 import { CreateAnswer } from '../../../../Core/DTOs/Answer/CreateAnswer.module';
+import { MenuComponentComponent } from "../../../../shared/menu-component/menu-component.component";
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [CommonModule , FormsModule],
+  imports: [CommonModule, FormsModule, MenuComponentComponent],
   templateUrl: './table.component.html',
   styleUrl: './table.component.css'
 })

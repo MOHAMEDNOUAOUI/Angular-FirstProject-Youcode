@@ -12,20 +12,33 @@
             @for (Subject of SurveyEdition.subjects; track Subject.id) {
                 <li>
                     <details open class="[&>summary]:list-none">
-                        <summary class="cursor-pointer">{{Subject.title}}</summary>
+                        <summary class="cursor-pointer flex justify-between items-center">
+                            {{Subject.title}}
+                            <app-menu-component [type]="'subject'" [subject]="Subject"></app-menu-component>
+                        </summary>
                         <ul class="tree-child">
                             @for (subsubject of Subject.subSubjects; track subsubject.id ; let last = $last) {
-                                <li (click)="passDataToSubjectComponent(subsubject)" class="tree-item">{{subsubject.title}}</li>
+                                <li (click)="passDataToSubjectComponent(subsubject)" class="tree-item flex items-center justify-between">
+                                    {{subsubject.title}}
+                                    <app-menu-component [type]="'subsubject'" [subject]="subsubject"></app-menu-component>
+                                </li>
                             }
                             <app-input 
-                            [inputData]="{InputType: 'text'  , placeholder:'Enter a Subsubject' ,type:'subjects'}"
-                            [subjectsData]="{subjectType:'subsubject' , parentId:Subject?.id  , surveyId:SurveyEdition.id}"
+                            [inputData]="{InputType:'text' , placeholder:'subsubject'}"
+                            [Subject]="{
+                                title:'',
+                                parentId:Subject.id,
+                                surveyEditionId:SurveyEdition.id
+                            }"
                             ></app-input>
                         </ul>
                     </details>
                 </li>
             }
-            <app-input [inputData]="{InputType: 'text', subjectType:'main' , placeholder:'Enter a Subject' , surveyId:SurveyEdition.id}"></app-input>
+            <app-input 
+            [inputData]="{InputType: 'text', placeholder:'Enter a Subject'}"
+            [Subject]="{title:'' , parentId:'' ,surveyEditionId:SurveyEdition.id}"
+            ></app-input>
         </ul>
         
     </div>

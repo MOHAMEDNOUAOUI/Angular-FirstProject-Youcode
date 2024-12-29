@@ -1,10 +1,15 @@
-<div class="item w-[19rem] h-48 rounded-3xl ps-8  p-4 relative flex flex-col">
+<div class="item w-[19rem] min-h-48 rounded-3xl ps-8  p-4 relative flex flex-col">
 
    <!-- <div class="buttontopright bg-white w-2/6 z-10 relative right-0 h-1/4">
             <div class="button w-[90%] h-[99%] bg-black relative z-10 rounded-full text-white flex justify-center items-center">
                 ...
             </div>
     </div> -->
+    
+    <div class="flex items-center text-white justify-between">
+        <h1>{{Survey.title}}</h1>
+        <app-menu-component [type]="'survey'" [survey]="Survey"></app-menu-component>
+    </div>
 
 
     <p style="box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;"

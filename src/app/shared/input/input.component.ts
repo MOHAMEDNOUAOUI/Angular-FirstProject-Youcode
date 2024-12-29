@@ -19,16 +19,10 @@ export class InputComponent implements OnInit {
   @Input() inputData: any = {
     InputType:'text',
     placeholder:'...',
-    type:"subjects"
   }
 
-  @Input() subjectsData :any  ={
-    surveyId:null,
-    parentId:null,
-    subjectType:'main'
-  }
 
-  Subject: CreateSubject = {
+  @Input() Subject: CreateSubject = {
     title:'',
     parentId:'',
     surveyEditionId:''
@@ -38,26 +32,17 @@ export class InputComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if(this.inputData?.surveyId){
-      this.Subject.surveyEditionId =this.inputData.surveyId;
-    }
-
-    if(this.inputData?.parentId){
-      this.Subject.parentId = this.inputData.parentId;
-    }
   }
 
   onEnter() : void {
-    if(this.inputData.type =="subjects"){
-      this.SubjectService.createSubject(this.Subject).subscribe({
-        next:() => {
-          window.location.reload();
-        },
-        error:(error) => {
-          console.error("Error in data fetching" , error);
-        }
-      })
-    }
+    this.SubjectService.createSubject(this.Subject).subscribe({
+      next:() => {
+        window.location.reload();
+      },
+      error:(error) => {
+        console.log(error);
+      }
+    })
   }
 
 

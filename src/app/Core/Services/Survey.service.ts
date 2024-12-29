@@ -18,4 +18,8 @@ export class SurveyService {
     getSurveys(): Observable<Survey[]>{
         return this.http.get<Survey[]>(this.url);
     }
+
+    deleteSUrvey(surveyId:string):Observable<void> {
+        return this.http.delete<void>(`${this.url}/${surveyId}`);
+    }
 }

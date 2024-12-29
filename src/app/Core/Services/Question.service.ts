@@ -19,5 +19,9 @@ export class QuestionService{
         createQuestion(Question:CreateQuestion) : Observable<Question> {
             return this.http.post<Question>(this.url , Question);
         }
+
+        deleteQuestion(questionId:string) : Observable<void>{
+            return this.http.delete<void>(`${this.url}/${questionId}`);
+        }
     
 }

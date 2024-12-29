@@ -18,4 +18,8 @@ export class AnswerService{
     createAnswer(Answer:any) : Observable<Answer> {
         return this.http.post<Answer>(this.url , Answer);
     }
+
+    deleteAnswer(questionId:string) : Observable<void>{
+        return this.http.delete<void>(`${this.url}/${questionId}`);
+    }
 }
