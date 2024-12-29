@@ -1,6 +1,6 @@
+import { SurveyEdition } from './../../../../../Core/Models/SurveyEdition.module';
 import { Component, Input } from '@angular/core';
 import { Survey } from '../../../../../Core/Models/Survey.module';
-import { SurveyEdition } from '../../../../survey-edition/Modules/SurveyEdition.module';
 import { Router } from '@angular/router';
 
 
