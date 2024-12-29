@@ -39,7 +39,7 @@ export class SurveyEditionComponent implements OnInit{
             this.SurveyEdition = data;
           },
           error:(error) => {
-            console.error('Error fetching survey:', error);
+            console.error('Error fetching survey:', error.message);
             this.router.navigate(['Dashboard/Survey']);
           }
         })

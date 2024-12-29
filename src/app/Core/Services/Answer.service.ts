@@ -7,11 +7,15 @@ import { Observable } from "rxjs";
     providedIn:"root"
 })
 export class AnswerService{
-    private url : string = "http://localhost:9000/answers/answerquestion";
+    private url : string = "http://localhost:9000/answers";
     constructor(private http:HttpClient){}
 
     getAnswerWithQuestionId(QuestionId : string) : Observable<Answer[]>{
-        const uri : string = `${this.url}/${QuestionId}`;
+        const uri : string = `${this.url}/answerquestion/${QuestionId}`;
         return this.http.get<Answer[]>(uri)
+    }
+
+    createAnswer(Answer:any) : Observable<Answer> {
+        return this.http.post<Answer>(this.url , Answer);
     }
 }

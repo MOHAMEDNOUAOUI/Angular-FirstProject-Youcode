@@ -8,6 +8,7 @@ import { SharedService } from '../../Services/sharedService.service';
 import { QuestionService } from '../../../../Core/Services/Question.service';
 import { AnswerService } from '../../../../Core/Services/Answer.service';
 import { FormsModule } from '@angular/forms';
+import { CreateAnswer } from '../../../../Core/DTOs/Answer/CreateAnswer.module';
 
 @Component({
   selector: 'app-table',
@@ -19,7 +20,7 @@ import { FormsModule } from '@angular/forms';
 export class TableComponent implements OnInit{
 
   answerlist!:Answer[];
-  questionId:string | null = null;
+
 
   @Input() subject!:Subject;
   
@@ -27,10 +28,6 @@ export class TableComponent implements OnInit{
   lastQuestionId!:String;
 
 
-  answerObject : any = {
-    text:'',
-    questionId:''
-  }
 
   constructor(private SharedService:SharedService , private QuestionService:QuestionService , private AnswerService:AnswerService){}
 
@@ -45,7 +42,7 @@ export class TableComponent implements OnInit{
   ngOnInit(): void {
       if(this.type==='answer'){
         this.SharedService.questionId$.subscribe((key) => {
-          this.answerObject.questionId = key;
+          this.Answer.questionId = key;
           this.AnswerService.getAnswerWithQuestionId(key!).subscribe({
             next:(data) => {
              this.answerlist = data;
@@ -71,6 +68,11 @@ export class TableComponent implements OnInit{
     subjectId:''
   }
 
+  Answer : CreateAnswer = {
+    text:'',
+    questionId:''
+  }
+
   onEnter(type : string) : void {
     
     if(type =='question'){
@@ -84,7 +86,14 @@ export class TableComponent implements OnInit{
       })
     }
     else if(type == 'answer'){
-      
+       this.AnswerService.createAnswer(this.Answer).subscribe({
+        next:(data) => {
+          this.answerlist.push(data)
+        },
+        error:(error) => {
+          console.log(error);
+        }
+       })
     }
     else{
 
