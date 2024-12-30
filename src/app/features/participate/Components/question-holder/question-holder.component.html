@@ -1,0 +1,10 @@
+<div class="w-[45rem] relative h-fit border-b-2 flex flex-col gap-10 py-20 px-1">
+    <h1 class="text-wrap w-full text-2xl">{{QuestionIndex + 1}}. {{Question?.text}}</h1>
+    <div class="w-full flex flex-col gap-2">
+        @for (answer of Question?.answerList; track $index) {
+            <app-answer-item  [answer]="answer"></app-answer-item>
+            <app-answer-item  [answer]="answer"></app-answer-item>
+        }
+    </div>
+    <app-progress-button (parentNotification)="getTheResponseFromButton()" class="absolute bottom-[-3rem] right-4" [type]="'Next'"></app-progress-button>
+</div>
