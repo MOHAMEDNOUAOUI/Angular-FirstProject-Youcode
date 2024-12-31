@@ -1,3 +1,3 @@
-<button class="" (click)="notifyParen()">
+<button *ngIf="showButton" class="bg-green-500 p-3 rounded-lg text-white" (click)="notifyParen()">
     {{type}}
 </button>

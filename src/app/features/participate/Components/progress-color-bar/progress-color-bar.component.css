@@ -1,0 +1,9 @@
+.bar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: var(--before-width , 0%);
+    transition: 1s ease-in-out;
+}

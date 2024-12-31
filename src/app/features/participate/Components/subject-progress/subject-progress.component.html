@@ -1,7 +1,11 @@
-<div class="px-4 h-fit w-fit flex gap-4 items-center">
-        @for (subSubject of subject.subSubjects; track $index) {
-                <app-subject-progress-item [index]="$index" [subSubject]="subSubject" [ngClass]="{'text-blue-300':this.subSubjectIndex > $index , 'text-green-400':this.subSubjectIndex === $index}"></app-subject-progress-item>
+<div class="px-4 h-fit w-fit flex gap-10 items-center">
+        @for (subSubject of subSubjects; track $index) {
+                <app-subject-progress-item 
+                [index]="$index" 
+                [subSubject]="subSubject"
+                [done]="this.subSubjectIndex > $index ? true : false" 
+                [ngClass]="{'text-green-400':this.subSubjectIndex === $index , 'text-gray-300':this.subSubjectIndex != $index ,'Checked':this.subSubjectIndex > $index}" 
+                ></app-subject-progress-item>
         }
-    }
 </div>
 

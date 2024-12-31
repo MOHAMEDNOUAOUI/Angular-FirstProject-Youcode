@@ -4,7 +4,7 @@
 
 <div *ngIf="isMenuOpen"  class="menu absolute z-50 w-32 rounded-lg p-2 right-[10%] bg-white text-black h-fit flex flex-col">
     <button class="w-fit text-left p-1 text-red-600" (click)="OnDelete()">Delete</button>
-    <button class="w-fit text-left p-1 " (click)="OnUpdate()">Edition</button>
+    <button class="w-fit text-left p-1 " *ngIf="type=='survey'" (click)="OnUpdate()">Edition</button>
 </div>
 
 <app-edition-panel (triggerClicked)="OnUpdate()" *ngIf="EditionPanel" [surveyId]="survey.id"></app-edition-panel>
