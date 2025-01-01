@@ -1,0 +1,16 @@
+@if (Surveys != null && Surveys.length > 0 && type === 'Surveys') {
+    <select name="" id="" class="p-2 outline-none px-2  bg-white shadow-2xl" (change)="onChange($event)">
+        <option value="" selected disabled>Select one</option>
+        @for (Survey of Surveys; track Survey.id) {
+            <option [value]="Survey.id">{{Survey.title}}</option>
+        }
+    </select>
+}@else if (SurveyEditions && SurveyEditions.length > 0 && type === 'SurveyEditions') {
+    <select name="" id="" class="p-2 outline-none px-2 bg-white shadow-2xl" (change)="onSurveyEditionChange($event)">
+        <option value="" selected disabled>Select Edition</option>
+        @for (SurveyEdition of SurveyEditions; track $index) {
+            <option [value]="SurveyEdition.id">{{SurveyEdition.year}}</option>
+        }
+    </select>
+}
+

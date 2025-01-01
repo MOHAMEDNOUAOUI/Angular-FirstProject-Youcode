@@ -1,3 +1,4 @@
-<div class="w-screen h-screen">
-
+<div class="w-screen min-h-screen" [@fade]="fadeState">
+   <app-hero (ResultId)="catchSurveyId($event)" *ngIf="!isResultPageActive"></app-hero>
+   <app-result-page (goBacktoParent)="wentback()" [SurveyEdition]="SurveyEdition" *ngIf="isResultPageActive"></app-result-page>
 </div>

@@ -1,9 +1,13 @@
 <div class="w-screen h-screen bg-white flex flex-col">
     <app-progress-color-bar [step]="this.step" [totalQuestions]="this.questionCount - 1"></app-progress-color-bar>
     <div class="w-full h-full p-20 flex gap-3 flex-col items-center">
-        <app-subject-progress [subSubjects]="SurveyEdition.subjects[this.subjectIndex].subSubjects!"></app-subject-progress>
+        @if (SurveyEdition.subjects && SurveyEdition.subjects.length > 0) {
+          <app-subject-progress [subSubjects]="SurveyEdition.subjects[this.subjectIndex].subSubjects!"></app-subject-progress>
         <app-question-holder  (notifyTheBigParen)="increment()"
           [Question]="SurveyEdition?.subjects?.[subjectIndex]?.subSubjects?.[subSubjectIndex]?.questionList?.[questionIndex]">
         </app-question-holder>
+        }@else {
+          <p>You cant Participate because the survey is empty</p>
+        }
     </div>
 </div>

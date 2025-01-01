@@ -45,7 +45,7 @@ export class ParticipateComponent implements OnInit{
           this.CalculateTheQuestion(this.SurveyEdition.subjects);
         },
         error:(error) =>{
-          this.router.navigate(['/HomePage'])
+          this.router.navigate(['/'])
         }
       })
 
@@ -99,7 +99,7 @@ export class ParticipateComponent implements OnInit{
           this.ParticipateService.createParticipatePayload(this.QuestionWithAnswers! , this.SurveyEdition.id).subscribe({
             next:(message) => {
                 console.log(message);
-                this.router.navigate(["/HomePage"]);
+                this.router.navigate(["/"]);
             },error:(error) => {
               console.log(error);
             }
