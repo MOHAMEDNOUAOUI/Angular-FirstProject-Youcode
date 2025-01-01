@@ -4,23 +4,28 @@ import { SurveyComponent } from './features/survey/survey.component';
 import { SurveyEditionComponent } from './features/survey-edition/survey-edition.component';
 import { ParticipateComponent } from './features/participate/participate.component';
 import { HomePageComponent } from './features/participate/Pages/home-page/home-page.component';
+import { AdminHomePage } from './features/dashboard-admin/Pages/home-page/home-page.component';
 
 export const routes: Routes = [
     {
         path:'Dashboard',
         component: DashboardAdminComponent,
         children:[
-            {path:'' , component:HomePageComponent},
+            {path:'' , component:AdminHomePage},
             {path:'SurveyEdition/:year' , component:SurveyEditionComponent},
             {path:'Survey' , component:SurveyComponent}
         ]
     },
     {
-        path:'Participate',
-        component:ParticipateComponent,
+        path:'',
+        component:HomePageComponent,
+        children:[
+        
+        ]
     },
     {
-        path:'HomePage',
-        component:HomePageComponent
+        path:'Participate/:id',
+        component:ParticipateComponent,
     },
+    
 ];

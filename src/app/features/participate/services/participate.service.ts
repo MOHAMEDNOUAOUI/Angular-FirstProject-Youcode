@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Question } from '../../../Core/Models/Question.module';
 import { ParticipateModule } from '../Models/participate.module';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -58,5 +59,15 @@ export class ParticipateService {
     this.QuestionWithAnswers.next([...currentQuestions, question]);
   }
 
+
+
+  // service for the database 
+
+  constructor(private http:HttpClient){}
+  private url : string = "http://localhost:9000/survey-edition";
+  createParticipatePayload(Array : ParticipateModule[] , SurveyEditionId:string) : Observable<string> {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this.http.post<string>(`${this.url}/${SurveyEditionId}/participate` , Array , {headers});
+  }
 
 }

@@ -5,7 +5,7 @@ import { SurveyEditionService } from '../../Core/Services/SurveyEdition.service'
 import { ProgressColorBarComponent } from "./Components/progress-color-bar/progress-color-bar.component";
 import { QuestionHolderComponent } from "./Components/question-holder/question-holder.component";
 import { SubjectProgressComponent } from "./Components/subject-progress/subject-progress.component";
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from '../../Core/Models/Subject.module';
 import { ParticipateModule } from './Models/participate.module';
 
@@ -17,9 +17,11 @@ import { ParticipateModule } from './Models/participate.module';
   styleUrl: './participate.component.css'
 })
 export class ParticipateComponent implements OnInit{
+  QuestionWithAnswers?: ParticipateModule[];
+
 
   SurveyEdition!:SurveyEdition;
-  surveyId : string = '1';
+  surveyId!: string;
   
   ActiveNextButton:boolean = false;
 
@@ -31,16 +33,19 @@ export class ParticipateComponent implements OnInit{
 
   step:number = 0;
 
-  constructor(private ParticipateService:ParticipateService , private SurveyEditionService:SurveyEditionService , private router:Router){}
+  constructor(private ParticipateService:ParticipateService , private route:ActivatedRoute , private SurveyEditionService:SurveyEditionService , private router:Router){}
 
   ngOnInit(): void {
+
+      this.surveyId = this.route.snapshot.paramMap.get('id') || '';
+
       this.SurveyEditionService.getSurveyById(this.surveyId).subscribe({
         next:(data) => {
           this.SurveyEdition = data;
           this.CalculateTheQuestion(this.SurveyEdition.subjects);
         },
         error:(error) =>{
-          console.log(error);
+          this.router.navigate(['/HomePage'])
         }
       })
 
@@ -54,6 +59,10 @@ export class ParticipateComponent implements OnInit{
       })
       this.ParticipateService.questionIndex$.subscribe((questionIndex) => {
         this.questionIndex = questionIndex;
+      })
+      this.ParticipateService.questionAndAnswers$.subscribe((Array) => {
+        this.QuestionWithAnswers = Array;
+        console.log(this.QuestionWithAnswers);
       })
       
 
@@ -86,7 +95,17 @@ export class ParticipateComponent implements OnInit{
     if (this.questionIndex >= Questions.length) {
       if (this.subjectIndex === this.SurveyEdition.subjects.length - 1 && 
         this.subSubjectIndex === SubSubject.length - 1) {
-          this.router.navigate(["/HomePage"]);
+
+          this.ParticipateService.createParticipatePayload(this.QuestionWithAnswers! , this.SurveyEdition.id).subscribe({
+            next:(message) => {
+                console.log(message);
+                this.router.navigate(["/HomePage"]);
+            },error:(error) => {
+              console.log(error);
+            }
+          });
+          
+          
       return;
     }
       this.ParticipateService.incrememntsubSubjectIndex();

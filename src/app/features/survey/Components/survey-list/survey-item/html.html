@@ -1,0 +1,30 @@
+<div class="item w-[19rem] min-h-48 rounded-3xl ps-8  p-4 relative flex flex-col">
+
+    <!-- <div class="buttontopright bg-white w-2/6 z-10 relative right-0 h-1/4">
+             <div class="button w-[90%] h-[99%] bg-black relative z-10 rounded-full text-white flex justify-center items-center">
+                 ...
+             </div>
+     </div> -->
+     
+     <div class="flex items-center text-white justify-between">
+         <h1>{{Survey.title}}</h1>
+         <app-menu-component [type]="'survey'" [survey]="Survey"></app-menu-component>
+     </div>
+ 
+ 
+     <p style="box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;"
+      class="text-black bg-white w-fit p-1 absolute left-[-1.5rem] rounded-lg">
+      ID : {{Survey.id}}
+     </p>
+ 
+    <div class="relative">
+     <h2 class="text-gray-400">owner <span class="text-white text-2xl">{{Survey.owner.name}}</span></h2>
+     <p class="text-gray-200">{{Survey.description}}</p>
+    </div>
+     
+     <div class="w-full h-fit mt-2 flex gap-2">
+         @for (edition of Survey.surveyEditionList; track edition.id) {
+             <button class="surveybutton p-2 rounded-xl" (click)="navigate(edition.year , edition.id)">{{edition.year}}</button>
+         }
+     </div>
+ </div>

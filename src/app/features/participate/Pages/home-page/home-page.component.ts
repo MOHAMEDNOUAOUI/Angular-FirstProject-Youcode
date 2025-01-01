@@ -10,7 +10,6 @@ import { ParticipateModule } from '../../Models/participate.module';
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent implements OnInit {
-   QuestionWithAnswers?: ParticipateModule[];
 
   constructor(private ParticipateService:ParticipateService){}
 
@@ -18,10 +17,5 @@ export class HomePageComponent implements OnInit {
       this.ParticipateService.resetQuestionIndex();
       this.ParticipateService.resetSubjectIndex();
       this.ParticipateService.resetsubSubjectIndex();
-
-      this.ParticipateService.questionAndAnswers$.subscribe((Array) => {
-        this.QuestionWithAnswers = Array;
-        console.log(this.QuestionWithAnswers);
-      })
   }
 }

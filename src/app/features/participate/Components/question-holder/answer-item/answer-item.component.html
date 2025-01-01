@@ -1,5 +1,4 @@
-<div (click)="OnEmit()" [ngClass]="isActive ? 'border-green-400' : ''" class="p-2 h-fit border flex gap-4 cursor-pointer">
-    <input type="radio" [ngClass]="{'text-green-500':isActive}" [checked]="isActive" name="" id="">
+<div (click)="OnEmit()" [ngClass]="isActive ? 'border-green-400' : ''" class="rounded-lg border-2 p-3 h-fit flex gap-4 cursor-pointer">
+    <input type="radio" [ngClass]="{'accent':isActive}" [checked]="isActive" name="" id="">
     <p>{{answer.text}}</p>
-    {{answer.id}}
 </div>

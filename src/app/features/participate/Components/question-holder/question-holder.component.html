@@ -1,6 +1,6 @@
 <div class="w-[45rem] relative h-fit border-b-2 flex flex-col gap-10 py-20 px-1">
-    <h1 class="text-wrap w-full text-2xl">{{QuestionIndex + 1}}. {{Question?.text}} --- {{Question?.id}}</h1>
-    <div class="w-full flex flex-col gap-2">
+    <h1 class="text-wrap w-full text-2xl">{{QuestionIndex + 1}}. {{Question?.text}}</h1>
+    <div class="w-full flex flex-col gap-4">
             @for (answer of Question?.answerList; track answer.id) {
                 <app-answer-item 
                 [isActive]="answer.id === isActiveAnswer || isActiveAnswers.includes(answer.id)" 
