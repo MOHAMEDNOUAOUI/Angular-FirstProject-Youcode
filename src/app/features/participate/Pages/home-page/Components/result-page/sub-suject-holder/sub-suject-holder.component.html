@@ -1,0 +1,18 @@
+<div class="w-full h-fit flex flex-col gap-4">
+    <div class="flex flex-col gap-2">
+        <h1 class="text-2xl underline font-bold">{{Sub.title}}</h1>
+        <p class="text-[#68707C]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet cum iusto corporis eveniet possimus cumque repudiandae doloremque quaerat fuga esse minus, molestias tenetur aliquam ea, consequuntur molestiae error necessitatibus quam.</p>
+    </div>
+
+    <div class="questionList flex flex-col gap-3">
+        @if (Sub.questionList && Sub.questionList.length > 0) {
+            @for (Question of Sub.questionList; track $index) {
+               <div class="p-2 bg-[#FAFAFB]">
+                <h2 class="text-xl font-medium">{{Question.text}}</h2>
+                <app-question-holder [totalAnswers]="Question.answerCount" [Answers]="Question.answerList"></app-question-holder>
+                <p class="w-full flex justify-end p-3 text-[#666E7A]">Total : {{Question.answerCount}}</p>
+               </div>
+            }
+        }
+    </div>
+</div>

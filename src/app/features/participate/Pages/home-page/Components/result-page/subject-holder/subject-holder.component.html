@@ -1,0 +1,12 @@
+<ul class="w-full h-full p-10 border-l">
+    @for (subject of Subjects; track $index) {
+        <li>{{subject.title}}
+
+            <ul class="ms-5">
+                @for (subSubject of subject.subSubjects; track $index) {
+                    <li>{{subSubject.title}}</li>
+                }
+            </ul>
+        </li>
+    }
+</ul>

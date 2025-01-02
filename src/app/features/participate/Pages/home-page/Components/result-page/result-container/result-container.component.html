@@ -1,0 +1,10 @@
+@for (subject of Subjects; track $index) {
+    <div class="flex flex-col gap-7">
+        <app-sub-suject-holder [Sub]="subject"></app-sub-suject-holder>
+
+        @for (Sub of subject.subSubjects; track $index) {
+            <app-sub-suject-holder [Sub]="Sub"></app-sub-suject-holder>
+        }
+    </div>
+
+}

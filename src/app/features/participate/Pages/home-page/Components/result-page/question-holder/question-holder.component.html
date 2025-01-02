@@ -1,0 +1,5 @@
+<div class="w-full border-b py-3 flex flex-col gap-2">
+    @for (Answer of Answers; track $index) {
+        <app-bar-item [CalculatedPercentage]="calculatePercentage(Answer.selectionCount)" [Answer]="Answer"></app-bar-item>
+    }
+</div>
