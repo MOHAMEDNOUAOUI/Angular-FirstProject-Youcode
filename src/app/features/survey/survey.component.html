@@ -8,7 +8,7 @@
         <app-trigger-panels (triggerClicked)="toggleForm()" icon="matPlus"></app-trigger-panels>
 
     </div>
-    <app-survey-list (isSurveyExist)="handleSurveyExist($event)"></app-survey-list>
+    <app-survey-list (showPanel)="toggleForm()" (isSurveyExist)="handleSurveyExist($event)"></app-survey-list>
 
     <app-form-survey *ngIf="FormVisible" (closeForm)="toggleFormClose()"></app-form-survey>
 </div>

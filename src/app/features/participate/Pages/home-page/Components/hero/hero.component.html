@@ -4,9 +4,8 @@
     @if (Surveys.length > 0) {
       <div class="flex gap-3">
         <app-switch-button (emitSurveyEdition)="putSurveyEditions($event)" [type]="'Surveys'" [Surveys]="Surveys"></app-switch-button>
-        <app-switch-button (emitSurveyEditionId)="putSurveyEditionId($event)" [type]="'SurveyEditions'" [SurveyEditions]="SurveyEditions"></app-switch-button>
       </div>
-      @if (SurveyEditions && SurveyEditions.length > 0) {
+      @if (SurveyEdition) {
         <div class="w-full flex  gap-1">
           <button *ngIf="this.surveyEditionId" class="w-full bg-green-500 text-white p-3 shadow-lg font-bold" (click)="clickedParticipate()">Participate</button>
         <button *ngIf="this.surveyEditionId" class="w-full bg-blue-500 text-white p-3 shadow-lg font-bold" (click)="callResultPage()">Result</button>

@@ -9,7 +9,7 @@
     <select name="" id="" class="p-2 outline-none px-2 bg-white shadow-2xl" (change)="onSurveyEditionChange($event)">
         <option value="" selected disabled>Select Edition</option>
         @for (SurveyEdition of SurveyEditions; track $index) {
-            <option [value]="SurveyEdition.id">{{SurveyEdition.year}}</option>
+            <option [value]="SurveyEdition.id">{{SurveyEdition.year}} {{SurveyEdition.startDate}}</option>
         }
     </select>
 }

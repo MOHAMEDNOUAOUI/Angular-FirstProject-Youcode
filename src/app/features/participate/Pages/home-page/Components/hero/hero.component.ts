@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 })
 export class HeroComponent implements OnInit {
     Surveys:Survey[] = [];
-    SurveyEditions:SurveyEdition[] = [];
+    SurveyEdition!:SurveyEdition;
 
      surveyEditionId!:string;
 
@@ -36,7 +36,13 @@ export class HeroComponent implements OnInit {
     }
 
     putSurveyEditions(SurveyEditions : SurveyEdition[]) : void{
-        this.SurveyEditions = SurveyEditions;
+        const year = new Date().getFullYear();
+        for(const SurveyEdition of SurveyEditions) {
+          if(SurveyEdition.year == year) {
+            this.surveyEditionId = SurveyEdition.id;
+            this.SurveyEdition = SurveyEdition;
+          }
+        } 
     }
 
     putSurveyEditionId(id:string) : void {
@@ -50,5 +56,6 @@ export class HeroComponent implements OnInit {
     callResultPage() : void {
       this.ResultId.emit(this.surveyEditionId);
     }
+
 
 }

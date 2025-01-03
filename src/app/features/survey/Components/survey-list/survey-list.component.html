@@ -3,7 +3,7 @@
     <div *ngIf="!Surveys" class="w-full h-full flex items-center justify-center flex-col">
            <h1 class="text-4xl font-bold text-gray-700">No Survey Founds</h1>
            <p>Maybe you can create one now?</p>
-
+            <button (click)="this.showPanel.emit()" class="bg-white shadow-xl p-3 rounded-md hover:bg-green-400 hover:text-white transition-all duration-150">Create one now</button>
     </div>
 
     @for (survey of Surveys; track survey.id) {

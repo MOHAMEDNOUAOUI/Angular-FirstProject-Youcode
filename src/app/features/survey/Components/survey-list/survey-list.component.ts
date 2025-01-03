@@ -18,6 +18,7 @@ export class SurveyListComponent implements OnInit {
   Surveys!:Survey[];
 
   @Output() isSurveyExist : EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() showPanel : EventEmitter<void> = new EventEmitter<void>();
 
   constructor(private surveyService : SurveyService){}
 
