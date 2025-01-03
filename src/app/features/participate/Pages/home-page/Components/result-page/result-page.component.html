@@ -1,7 +1,7 @@
-<div class="w-full h-screen relative flex overflow-x-hidden justify-center">
+<div class="w-full h-screen relative flex overflow-x-hidden justify-center" (scroll)="onScrol($event)">
     <button (click)="this.goBacktoParent.emit()" class="fixed top-10 left-5">back</button>
-    <div class="w-3/4 h-full flex">
-        <app-result-container [Subjects]="SurveyEdition.subjects" class="w-full h-full"></app-result-container>
-        <app-subject-holder [Subjects]="SurveyEdition.subjects" class="w-1/3 h-full"></app-subject-holder>
+    <div class="w-3/4 h-fit flex">
+        <app-result-container #results [Subjects]="SurveyEdition.subjects" class="w-full h-full"></app-result-container>
+        <app-subject-holder [visible]="VisibleItem" [Subjects]="SurveyEdition.subjects" class="w-[5%] h-full"></app-subject-holder>
     </div>
 </div>

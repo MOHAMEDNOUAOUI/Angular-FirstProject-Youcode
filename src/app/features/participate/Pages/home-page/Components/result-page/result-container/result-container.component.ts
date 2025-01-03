@@ -1,4 +1,4 @@
-import { Component, Input, input } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, input, Output, ViewChild } from '@angular/core';
 import { SurveyEdition } from '../../../../../../../Core/Models/SurveyEdition.module';
 import { Subject } from '../../../../../../../Core/Models/Subject.module';
 import { Gemini } from '../../../../../services/gemini.service';
